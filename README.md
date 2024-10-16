@@ -28,14 +28,14 @@ Users can view the status of devices (online/offline), their last seen time, and
 # Setup Instructions
 
 Step 1: Clone the Repository
-''' git clone https://github.com/your-repo/network-scanner.git '''
+```git clone https://github.com/your-repo/network-scanner.git```
 
-''' cd network-scanner '''
+```cd network-scanner```
 
 Step 2: Install the Required Libraries
 You can install all the necessary libraries using pip. Open your terminal and run the following command:
 
-'''pip install flask scapy weasyprint'''
+```pip install flask scapy weasyprint```
 
 Step 3: Run the Application
 After installing the required libraries, run the Flask app using the following command:
@@ -43,7 +43,7 @@ After installing the required libraries, run the Flask app using the following c
 Step 4: Access the Application
 Open your web browser and visit:
 
-'''http://127.0.0.1:5000'''
+```http://127.0.0.1:5000```
 
 * Important Note
 
@@ -51,10 +51,10 @@ Change the IP Address:
 
 To correctly scan the network, you need to modify the IP address in the scanner.py file. Ensure the IP address matches the IP range of the network you are scanning. Here's how you can change it:
 
-Open the scanner.py file.
+Open the ```scanner.py``` file.
 
 Locate the section where the IP range is defined. It will look something like this:
-'''target_ip = "192.168.0.1/24"'''
+```target_ip = "192.168.0.1/24"```
 
 Replace the IP address (192.168.0.1/24) with the appropriate IP address range for your local network.
 
