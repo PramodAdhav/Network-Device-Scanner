@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Network Scanner</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            opacity: 0; 
+            transition: opacity 0.3s ease; 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; 
+            border-radius: 8px;
+            text-align: left;
+            transform: translateY(-20px); 
+            transition: transform 0.3s ease; 
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        
+        .modal.show {
+            display: block; 
+            opacity: 1;
+        }
+
+        
+        .modal-content.show {
+            transform: translateY(0); 
+        }
+        .export-ka-button {
+    position: absolute; 
+    top: 20px;
+    right: 20px; 
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.export-ka-button:hover {
+    background-color: #2980b9;
+}
+    </style>
+</head>
+<body>
+    <button class="export-ka-button">
+        <a href="{{ url_for('export_pdf') }}" class="export-button">Export</a> <!-- Export Button -->
+        </button>
+    <div class="container">
+        <h1>Active Devices in the Network</h1>
+        <!-- Search Bar -->
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" name="query" placeholder="Search by IP or MAC" required>
+            <button type="submit">Search</button>
+        </form>
+        {% if search_query %}
+            <a href="{{ url_for('index') }}" class="show-all-button">Show All Devices</a>
+        {% endif %}
+<br>
+
+
+        <div class="device-grid">
+            {% if devices %}
+                {% for device in devices %}
+                <div class="device-card" onclick="openModal('{{ device.name }}', '{{ device.ip }}', '{{ device.mac }}', '{{ device.manufacturer }}', '{{ device.status }}', '{{ device.last_seen }}')">
+                    <h2>{{ device.name or 'Unknown' }}</h2>
+                    <p><strong>IP Address:</strong> {{ device.ip }}</p>
+                    <p><strong>MAC Address:</strong> {{ device.mac }}</p>
+                    <p><strong>Manufacturer:</strong> {{ device.manufacturer }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No devices found matching your query.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Modal for device details -->
+    <div id="deviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalDeviceName"></h2>
+            <p><strong>IP Address:</strong> <span id="modalDeviceIP"></span></p>
+            <p><strong>MAC Address:</strong> <span id="modalDeviceMAC"></span></p>
+            <p><strong>Manufacturer:</strong> <span id="modalDeviceManufacturer"></span></p>
+            <p><strong>Status:</strong> <span id="modalDeviceStatus"></span></p>
+            <p><strong>Last Seen:</strong> <span id="modalDeviceLastSeen"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal and display device details
+        function openModal(name, ip, mac, manufacturer, status, lastSeen) {
+            document.getElementById('modalDeviceName').innerText = name;
+            document.getElementById('modalDeviceIP').innerText = ip;
+            document.getElementById('modalDeviceMAC').innerText = mac;
+            document.getElementById('modalDeviceManufacturer').innerText = manufacturer;
+            document.getElementById('modalDeviceStatus').innerText = status;
+            document.getElementById('modalDeviceLastSeen').innerText = lastSeen;
+
+            // Show modal with smooth transition
+            const modal = document.getElementById('deviceModal');
+            const modalContent = modal.querySelector('.modal-content');
+            modal.style.display = 'block'; // Make modal visible
+            setTimeout(() => {
+                modal.classList.add('show');
+                modalContent.classList.add('show'); // Trigger the slide down effect
+            }, 10); // Short timeout for transition
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('deviceModal');
+            const modalContent = modal.querySelector('.modal-content');
+            modal.classList.remove('show');
+            modalContent.classList.remove('show'); // Trigger the slide up effect
+
+            // Delay hiding the modal until the transition ends
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Match this duration with the transition duration in CSS
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('deviceModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
