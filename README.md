@@ -29,7 +29,7 @@ Users can view the status of devices (online/offline), their last seen time, and
 
 Step 1: Clone the Repository
 
-```git clone https://github.com/your-repo/network-scanner.git```
+```git clone https://github.com/PramodAdhav/network-scanner.git```
 
 ```cd network-scanner```
 
