@@ -59,7 +59,7 @@ Open your web browser and visit:
 Change the IP Address
 To correctly scan the network, you need to modify the IP address in the scanner.py file. Ensure the IP address matches the IP range of the network you are scanning. Here's how you can change it:
 
-Open the '''scanner.py''' file.
+Open the scanner.py file.
 
 Locate the section where the IP range is defined. It will look something like this:
 '''target_ip = "192.168.0.1/24"'''
@@ -67,8 +67,10 @@ Locate the section where the IP range is defined. It will look something like th
 Replace the IP address (192.168.0.1/24) with the appropriate IP address range for your local network.
 
 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Credits
+
 Developed by: Pramod Adhav
 Contact: Pramodadhav111@gmail.com
