@@ -31,7 +31,7 @@ Step 1: Clone the Repository
 
 ```git clone https://github.com/PramodAdhav/Network-Device-Scanner.git```
 
-```cd network-scanner```
+```cd Network-Device-Scanner```
 
 Step 2: Install the Required Libraries
 You can install all the necessary libraries using pip. Open your terminal and run the following command:
