@@ -1,4 +1,4 @@
-#Network Device Scanner and Report Generator
+# Network Device Scanner and Report Generator
 
 This project is a Network Device Scanner that detects active devices connected to a local network and generates a detailed report of these devices. The report includes the device's name, IP address, MAC address, manufacturer, status (online/offline), and last seen time. The report can be exported as a PDF for record-keeping or analysis purposes.
 
