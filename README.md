@@ -46,7 +46,9 @@ Open your web browser and visit:
 '''http://127.0.0.1:5000'''
 
 * Important Note
-Change the IP Address
+
+Change the IP Address:
+
 To correctly scan the network, you need to modify the IP address in the scanner.py file. Ensure the IP address matches the IP range of the network you are scanning. Here's how you can change it:
 
 Open the scanner.py file.
