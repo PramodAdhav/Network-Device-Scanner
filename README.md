@@ -2,18 +2,7 @@
 
 This project is a Network Device Scanner that detects active devices connected to a local network and generates a detailed report of these devices. The report includes the device's name, IP address, MAC address, manufacturer, status (online/offline), and last seen time. The report can be exported as a PDF for record-keeping or analysis purposes.
 
-Table of Contents
-Project Overview
-Features
-Tools and Technologies Used
-Setup Instructions
-Important Note
-Project Structure
-Screenshots
-Future Enhancements
-License
-
-Project Overview
+# Project Overview
 This web-based application allows users to scan their local network for active devices and generate a PDF report. The project is built using Flask (a lightweight web framework), and Scapy (for network scanning). The web interface provides a visually appealing design, and the report includes key details about each device found during the scan.
 
 Users can view the status of devices (online/offline), their last seen time, and other important information such as the device's manufacturer and MAC address. The device details are displayed in a table, and the report can be exported as a PDF file.
@@ -26,7 +15,7 @@ Users can view the status of devices (online/offline), their last seen time, and
 * Dynamic User Interface: Visually appealing and responsive UI with centered tables, hover effects, and device status indicators.
 * Interactive Device Details: Click on any device card to enlarge details and view additional information.
 
-# Programming Languages:
+# Programming Languages
 * Python: Core programming language used to develop the backend logic and handle network scanning.
 * HTML/CSS: Frontend development for designing the user interface.
 # Frameworks:
@@ -36,7 +25,8 @@ Users can view the status of devices (online/offline), their last seen time, and
 * Scapy: A Python library used for network scanning to find active devices and retrieve their IP addresses, MAC addresses, and manufacturer.
 * WeasyPrint: Converts HTML files into PDFs, used for exporting device information into a report.
 
-Setup Instructions
+# Setup Instructions
+
 Step 1: Clone the Repository
 ''' git clone https://github.com/your-repo/network-scanner.git '''
 
@@ -73,4 +63,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Credits
 
 Developed by: Pramod Adhav
+
 Contact: Pramodadhav111@gmail.com
