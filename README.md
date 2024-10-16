@@ -28,6 +28,7 @@ Users can view the status of devices (online/offline), their last seen time, and
 # Setup Instructions
 
 Step 1: Clone the Repository
+
 ```git clone https://github.com/your-repo/network-scanner.git```
 
 ```cd network-scanner```
@@ -62,7 +63,6 @@ License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Credits
 
 Developed by: Pramod Adhav
 
